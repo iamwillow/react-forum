@@ -35,7 +35,7 @@ export default class Login extends Component {
 
   registerSubmitHandler() {
     //check for real email
-    firebase.auth().createUserWithEmailandPassword(
+    firebase.auth().createUserWithEmailAndPassword(
       this.state.email,
       this.state.pass
     );
