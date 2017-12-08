@@ -16,7 +16,7 @@ export default class Header extends Component {
       return (
         <div>
           <p>begin header</p>
-          <button onChange={this.logoutChangeHandler}>Logout</button>
+          <button onClick={this.logoutChangeHandler}>Logout</button>
           <p>end header</p>
         </div>
       );

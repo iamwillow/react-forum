@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
-import { Redirect } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
-import Routes from './routes';
 import Header from './components/header/header';
+import Homepage from './components/homepage/homepage';
+import Login from './components/login/login';
 import './assets/styles/stylesheet.css';
 
 export default class App extends Component {
@@ -34,19 +35,22 @@ export default class App extends Component {
       return (
         <div>Page loading ...</div>
       );
-    } else {
-      if (this.state.loggedIn) {
-        return (
-          <div>
-            <Header userLoggedIn={this.state.loggedIn} />
-            <Routes />
-            <div className="footer"></div>
-          </div>
-        );
-      }
+    }
+    if (this.state.loggedIn) {
       return (
-        <Redirect to="/login" />
+        <div>
+          <Header userLoggedIn={this.state.loggedIn} />
+          <Route path="/" component={Homepage} />
+          <div className="footer" />
+        </div>
       );
     }
+    return (
+      <div>
+        <Header userLoggedIn={this.state.loggedIn} />
+        <Route path="/login" component={Login} />
+        <div className="footer" />
+      </div>
+    );
   }
 }

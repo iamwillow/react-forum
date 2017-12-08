@@ -27,14 +27,18 @@ export default class Login extends Component {
   }
 
   loginSubmitHandler() {
-    const auth = firebase.auth();
-    auth.signInWithEmailAndPassword(this.state.email, this.state.pass);
+    firebase.auth().signInWithEmailAndPassword(
+      this.state.email,
+      this.state.pass
+    );
   }
 
   registerSubmitHandler() {
     //check for real email
-    const auth = firebase.auth();
-    auth.createUserWithEmailandPassword(this.state.email, this.state.pass);
+    firebase.auth().createUserWithEmailandPassword(
+      this.state.email,
+      this.state.pass
+    );
   }
 
   render() {
