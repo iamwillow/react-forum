@@ -12,8 +12,8 @@
     "react-scripts": "1.0.17"
   },
   "scripts": {
-    "build-css": "node-sass-chokidar src/ -o src/",
-    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "build-css": "node-sass-chokidar src/ -o src/ --output-style compressed",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive --output-style compressed",
     "start-js": "react-scripts start",
     "start": "npm-run-all -p watch-css start-js",
     "build": "npm run build-css && react-scripts build",
