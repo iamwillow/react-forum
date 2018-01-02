@@ -1,28 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 import firebase from 'firebase';
 
-export default class Header extends Component {
-  constructor(props) {
-    super(props);
-    this.logoutChangeHandler = this.logoutChangeHandler.bind(this);
-  }
-
-  logoutChangeHandler() {
-    firebase.auth().signOut();
-  }
-
-  render() {
-    if (this.props.userLoggedIn) {
-      return (
-        <div>
-          <p>begin header</p>
-          <button onClick={this.logoutChangeHandler}>Logout</button>
-          <p>end header</p>
-        </div>
-      );
-    }
+function Header(props) {
+  if (props.userLoggedIn) {
     return (
-      <p>user is logged out</p>
+      <div className="header">
+        <button onClick={() => firebase.auth().signOut() }>Logout</button>
+      </div>
     );
   }
+  return (
+    <div className="header" />
+  );
 }
+
+export default Header;

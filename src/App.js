@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
-import { Route } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 
 import Header from './components/header/header';
-import Homepage from './components/homepage/homepage';
-import Login from './components/login/login';
+import Routes from './routes';
 import './assets/styles/stylesheet.css';
 
 export default class App extends Component {
@@ -36,19 +35,14 @@ export default class App extends Component {
         <div>Page loading ...</div>
       );
     }
-    if (this.state.loggedIn) {
-      return (
-        <div>
-          <Header userLoggedIn={this.state.loggedIn} />
-          <Route path="/" component={Homepage} />
-          <div className="footer" />
-        </div>
-      );
-    }
     return (
       <div>
         <Header userLoggedIn={this.state.loggedIn} />
-        <Route path="/login" component={Login} />
+        <div className="wrapper">
+          <Switch>
+            <Routes userLoggedIn={this.state.loggedIn} />
+          </Switch>
+        </div>
         <div className="footer" />
       </div>
     );

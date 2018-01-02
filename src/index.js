@@ -8,12 +8,12 @@ import registerServiceWorker from './registerServiceWorker';
 import { Config } from './config';
 
 const config = {
-  apiKey: Config.firebaseApiKey,
-  authDomain: Config.firebaseAuthDomain,
-  databaseURL: Config.firebaseDatabaseURL,
-  projectId: Config.firebaseProjectId,
-  storageBucket: Config.firebaseStorageBucket,
-  messagingSenderId: Config.firebaseMessagingSenderId,
+  apiKey: Config.firebase.ApiKey,
+  authDomain: Config.firebase.AuthDomain,
+  databaseURL: Config.firebase.DatabaseURL,
+  projectId: Config.firebase.ProjectId,
+  storageBucket: Config.firebase.StorageBucket,
+  messagingSenderId: Config.firebase.MessagingSenderId,
 };
 firebase.initializeApp(config);
 
